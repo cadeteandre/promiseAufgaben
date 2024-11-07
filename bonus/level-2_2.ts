@@ -26,15 +26,13 @@ generateLoremIpsum(30)
     .then((resp) => {
         const newArr: string[] = [...resp];
         for(let i: number = 0; i < resp.length; i++) {
-            newArr[i] = newArr[i].replaceAll('L', '');
-            newArr[i] = newArr[i].replaceAll('T', '');
-            newArr[i] = newArr[i].replaceAll('U', '');
+            newArr[i] = newArr[i].replaceAll('L', '').replaceAll('T', '').replaceAll('U', '');
         }
         console.log(newArr);
         return newArr;
     })
     .then((resp) => {
-        const newArr: string[] = resp.filter((word) => word.length <= 8);
+        const newArr: string[] = resp.filter((word) => word.length > 8);
         console.log(newArr);
         return newArr;
     })
